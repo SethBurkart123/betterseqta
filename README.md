@@ -17,4 +17,6 @@ Nulkem, creator of the original project
 Crazypersonalph, currently the lead developer of this fork
 </p>
 <br>
+<div align="center">
 <a href="https://discord.gg/jPFpsrtPyX">Join the Discord!</a>
+</div>
