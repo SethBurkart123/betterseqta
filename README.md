@@ -6,7 +6,7 @@
 </h1>
 
 <p align="center">
-The continuation of the BetterSeqta project, which has seen no commits recently
+The continuation of the BetterSeqta project
 </p>
 
 <p align="center">
