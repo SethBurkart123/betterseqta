@@ -11,6 +11,7 @@ The continuation of the BetterSeqta project, which has seen no commits recently
 
 <p align="center">
 Credits:
+<br>
 Nulkem, creator of the original project
 <br>
 Crazypersonalph, currently the lead developer of this fork
