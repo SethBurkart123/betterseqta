@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/Nulkem/better-seqta/"><img src="https://user-images.githubusercontent.com/95666457/149907844-f4466dfc-f40d-409a-a888-a094c57040f0.png" alt="BetterSEQTA" width="600"></a>
+  <a href="https://betterseqta.crazypersonalph.com"><img src="https://user-images.githubusercontent.com/95666457/149907844-f4466dfc-f40d-409a-a888-a094c57040f0.png" alt="BetterSEQTA" width="600"></a>
 
 </h1>
 
