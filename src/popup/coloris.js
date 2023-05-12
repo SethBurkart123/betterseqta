@@ -1,9 +1,3 @@
-/*!
- * Copyright (c) 2021 Momo Bassit.
- * Licensed under the MIT License (MIT)
- * https://github.com/mdbassit/Coloris
- */
-
 ((window, document, Math) => {
   const ctx = document.createElement('canvas').getContext('2d');
   const currentColor = { r: 0, g: 0, b: 0, h: 0, s: 0, v: 0, a: 1 };
