@@ -10,11 +10,13 @@ The continuation of the BetterSeqta project
 </p>
 
 <p align="center">
-Credits:
+Contributors (very cool people):
 <br>
 Nulkem, creator of the original project
 <br>
 Crazypersonalph, currently the lead developer of this fork
+<br>
+Norangeflame, helped fix notices issue
 </p>
 <br>
 <div align="center">
