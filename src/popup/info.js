@@ -131,6 +131,7 @@ function updateUI(restoredSettings) {
 
 var stringtoHTML = function (str) {
   var parser = new DOMParser();
+  var str = DOMPurify.sanitize(str);
   var doc = parser.parseFromString(str, "text/html");
   return doc.body;
 };
