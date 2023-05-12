@@ -25,6 +25,8 @@ Acknowledgements:
 Nulkem, creator of the original BetterSeqta project, and so some of his code is used
 <br>
 Momo Bassit, creator of the Coloris project, which is also used in the BetterSeqta project
+<br>
+Dr.-Ing. Mario Heiderich, Cure53, creators of the DOMPurify project
 </p>
 <br>
 <div align="center">
