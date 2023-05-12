@@ -21,9 +21,10 @@ var currentSelectedDate = new Date();
 var WhatsNewOpen = false;
 var LessonInterval;
 
-var stringToHTML = function (str) {
+var stringToHTML = function (str, styles=false) {
   var parser = new DOMParser();
   var doc = parser.parseFromString(str, "text/html");
+  if(styles){doc.body.style.cssText = "height: auto; overflow: scroll; margin: 0px; background: var(--background-primary);"}
   return doc.body;
 };
 
@@ -3037,7 +3038,7 @@ function SendHomePage() {
                 );
                 NewNotice.append(staff.firstChild);
                 // Converts the string into HTML
-                var content = stringToHTML(NoticesPayload.payload[i].contents);
+                var content = stringToHTML(NoticesPayload.payload[i].contents, styles=true);
                 for (let i = 0; i < content.childNodes.length; i++) {
                   NewNotice.append(content.childNodes[i]);
                 }
