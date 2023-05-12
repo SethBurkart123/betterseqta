@@ -1045,11 +1045,6 @@ function RunExtensionSettingsJS() {
     }
   }
 
-  var stringtoHTML = function (str) {
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(str, "text/html");
-    return doc.body;
-  };
 
   function CreateShortcutDiv(name) {
 
