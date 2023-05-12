@@ -19,6 +19,14 @@ Crazypersonalph, currently the lead developer of this fork
 Norangeflame, helped fix notices issue
 </p>
 <br>
+<p align="center">
+Acknowledgements:
+<br>
+Nulkem, creator of the original BetterSeqta project, and so some of his code is used
+<br>
+Momo Bassit, creator of the Coloris project, which is also used in the BetterSeqta project
+</p>
+<br>
 <div align="center">
 <a href="https://discord.gg/jPFpsrtPyX">Join the Discord!</a>
 </div>
