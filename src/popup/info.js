@@ -39,7 +39,7 @@ var validURL = false;
 var validName = false;
 
 function openGithub() {
-  chrome.tabs.create({ url: "https://github.com/Nulkem/better-seqta" });
+  chrome.tabs.create({ url: "https://github.com/Crazypersonalph/betterseqta" });
 }
 
 
