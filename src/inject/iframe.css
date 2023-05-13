@@ -1,7 +1,9 @@
 html, p, div, span {
   color: white !important;
 }
-
+body {
+  background-color: #232323;
+}
 blockquote.forward > .preamble {
   color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -16,8 +18,4 @@ blockquote.forward > .preamble > .sender > .label {
 }
 table th {
   background-color: #161616;
-}
-
-table {
-  border:;
 }
