@@ -1,6 +1,5 @@
 html, p, div, span {
   color: white !important;
-  text-shadow: 1px 1px 2px #161616, 0 0 1em #161616;
 }
 
 blockquote.forward > .preamble {
@@ -17,4 +16,8 @@ blockquote.forward > .preamble > .sender > .label {
 }
 table th {
   background-color: #161616;
+}
+
+table {
+  border:;
 }
