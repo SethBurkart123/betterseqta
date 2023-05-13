@@ -20,3 +20,7 @@ blockquote.forward > .preamble > .sender > .label {
 table th {
   background-color: #161616;
 }
+table {
+  background-color: #232323;
+}
+
