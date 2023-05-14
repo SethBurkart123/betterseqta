@@ -830,7 +830,7 @@ function RunFunctionOnTrue(storedSetting) {
       document.documentElement.style.setProperty('--text-primary', "black");
     }
 
-    document.querySelector('link[rel*="icon"]').href = chrome.extension.getURL("icons/icon-48.png");
+    document.querySelector('link[rel*="icon"]').href = chrome.runtime.getURL("icons/icon-48.png");
 
     rbg = GetThresholdofHex(storedSetting.selectedColor);
     if (rbg > 210) {
@@ -908,7 +908,7 @@ document.addEventListener(
       console.log("[BetterSEQTA] Verified SEQTA Page");
 
       var link = document.createElement("link");
-      link.href = chrome.extension.getURL("inject/documentload.css");
+      link.href = chrome.runtime.getURL("inject/documentload.css");
       link.type = "text/css";
       link.rel = "stylesheet";
       document.getElementsByTagName("html")[0].appendChild(link);
@@ -2812,7 +2812,7 @@ function SendHomePage() {
 
     const titlediv = document.getElementById('title').firstChild;
     titlediv.innerText = "Home";
-    document.querySelector('link[rel*="icon"]').href = chrome.extension.getURL("icons/icon-48.png");
+    document.querySelector('link[rel*="icon"]').href = chrome.runtime.getURL("icons/icon-48.png");
 
     currentSelectedDate = new Date();
 
