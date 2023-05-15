@@ -7,7 +7,7 @@ var WhatsNewOpen = false;
 var LessonInterval;
 var stringToHTML = function (str, styles=false) {
   var parser = new DOMParser();
-  var str = DOMPurify.sanitize(str);
+  var str = DOMPurify.sanitize(str, { ADD_ATTR: ['onclick']});
   var doc = parser.parseFromString(str, "text/html");
   if(styles){doc.body.style.cssText = "height: auto; overflow: scroll; margin: 0px; background: var(--background-primary);"}
   return doc.body;
