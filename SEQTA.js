@@ -2158,8 +2158,8 @@ function hexToRGB(hex) {
 }
 
 function GetThresholdofHex(hex) {
-  rbg = hexToRGB(hex)
-  return Math.sqrt(rbg.r ** 2 + rbg.g ** 2 + rbg.b ** 2)
+  var rgb = hexToRGB(hex)
+  return Math.sqrt(rgb.r ** 2 + rgb.g ** 2 + rgb.b ** 2)
 }
 
 function CheckCurrentLessonAll(lessons) {
