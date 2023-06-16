@@ -10,6 +10,10 @@ The continuation of the BetterSeqta project
 </p>
 
 <p align="center">
+(This project is not related to in any way/shape/form to Education Horizons and/or any related parties)
+</p>
+
+<p align="center">
 Contributors (very cool people):
 <br>
 Nulkem, creator of the original project
