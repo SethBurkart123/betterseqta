@@ -7,7 +7,9 @@
 
 <p align="center">
 The continuation of the BetterSeqta project
-  
+</p>
+
+<p align="center">
 (This project is not related to in any way/shape/form to Education Horizons and/or any related parties)
 </p>
 
