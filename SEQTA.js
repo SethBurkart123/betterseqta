@@ -379,6 +379,16 @@ function GetiFrameCSSElement() {
   return fileref;
 }
 
+function GetNoticeiFrameCSSElement() {
+  var cssFile = chrome.runtime.getURL("inject/noticeiframe.css");
+  var fileref = document.createElement("link");
+  fileref.setAttribute("rel", "stylesheet");
+  fileref.setAttribute("type", "text/css");
+  fileref.setAttribute("href", cssFile);
+
+  return fileref;
+}
+
 function CheckiFrameItems() {
   // Injecting CSS File to the webpage to overwrite iFrame default CSS
   fileref = GetiFrameCSSElement();
@@ -638,10 +648,12 @@ function tryLoad() {
     "load",
     function () {
       CheckiFrameItems();
+      addIFrameCSSToNotices();
     },
     true
   );
 }
+
 
 function ChangeMenuItemPositions(storage) {
   menuorder = storage;
@@ -3210,6 +3222,15 @@ function SendNewsPage() {
 
 
   }, 8);
+}
+
+function addIFrameCSSToNotices() {
+    userHTMLArray = document.getElementsByClassName('userHTML');
+    for (let item of userHTMLArray) {
+      fileref = GetNoticeiFrameCSSElement();
+      head = item.contentWindow.document.querySelectorAll('head')[0];
+      head.append(fileref);
+    }
 }
 
 function EnabledDisabledToBool(input) {

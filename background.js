@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     ReloadSEQTAPages();
   }
   else if (request.type == "githubTab") {
-    chrome.tabs.create({ url: "https://github.com/Nulkem/betterseqta" });
+    chrome.tabs.create({ url: "https://github.com/crazypersonalph/betterseqta" });
   }
   else if (request.type == "setDefaultStorage") {
     console.log('setting default values')
