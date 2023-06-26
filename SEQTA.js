@@ -379,6 +379,8 @@ function GetiFrameCSSElement() {
   return fileref;
 }
 
+// This function just grabs the CSS file for the iFrames of notices
+// Duplicate of the GetiFrameCSSElement function, look above
 function GetNoticeiFrameCSSElement() {
   var cssFile = chrome.runtime.getURL("inject/noticeiframe.css");
   var fileref = document.createElement("link");
@@ -3224,12 +3226,19 @@ function SendNewsPage() {
   }, 8);
 }
 
+// This function just applies some iFrame CSS to the notices; it fixes some colouring issues, namely Issue #8
+
 function addIFrameCSSToNotices() {
+    // Grabs an array of the notice iFrames
     userHTMLArray = document.getElementsByClassName('userHTML');
+    // Iterates through the array, applying the iFrame css
     for (let item of userHTMLArray) {
+      // Grabs the link of the CSS file
       fileref = GetNoticeiFrameCSSElement();
+      // Grabs the HTML of the header tag
       head = item.contentWindow.document.querySelectorAll('head')[0];
-      head.append(fileref);
+      // Checks if the CSS has already been applied. If it has, then it does nothing. If not, it appends the CSS file
+      if (head.innerHTML.includes("noticeiframe.css") === false) {head.append(fileref);}
     }
 }
 
