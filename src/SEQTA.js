@@ -2377,10 +2377,10 @@ function CheckSpecialDay (date1, date2) {
 
 function CreateDateCheckedDiv (text, date) {
   const upcomingitemcontainer = document.querySelector('#upcoming-items')
-  const container = CreateElement(type = 'div', class_ = 'upcoming-date-container')
-  const datecontainer = CreateElement(type = 'div', class_ = 'upcoming-date-title')
-  const titletext = CreateElement(type = 'h5', class_ = 'upcoming-special-day', id = undefined, innerText = text)
-  const titledate = CreateElement(type = 'h5', class_ = undefined, id = undefined, innerText = date)
+  const container = CreateElement('div', 'upcoming-date-container')
+  const datecontainer = CreateElement('div', 'upcoming-date-title')
+  const titletext = CreateElement('h5', 'upcoming-special-day', undefined, text)
+  const titledate = CreateElement('h5', undefined, undefined, date)
 
   const textcontainer = CreateElement('div', 'upcoming-blank')
   const textblank = CreateElement('p')
@@ -2517,8 +2517,8 @@ function CreateUpcomingSection (assessments) {
     for (let i = 0; i < assessments.length; i++) {
       const element = assessments[i]
       if (!upcomingDates[element.due]) {
-        const dateObj = new Object()
-        dateObj.div = CreateElement(type = 'div', class_ = 'upcoming-date-container')
+        const dateObj = {}
+        dateObj.div = CreateElement('div', 'upcoming-date-container')
         dateObj.assessments = []
 
         upcomingDates[element.due] = dateObj
@@ -2532,7 +2532,7 @@ function CreateUpcomingSection (assessments) {
       const specialcase = CheckSpecialDay(Today, assessmentdue)
 
       if (specialcase) {
-        assessmentDate = createAssessmentDateDiv(date, upcomingDates[date], datecase = specialcase)
+        assessmentDate = createAssessmentDateDiv(date, upcomingDates[date], specialcase)
       } else {
         assessmentDate = createAssessmentDateDiv(date, upcomingDates[date])
       }
@@ -2863,7 +2863,7 @@ function SendHomePage () {
                 )
                 NewNotice.append(staff.firstChild)
                 // Converts the string into HTML
-                const content = stringToHTML(NoticesPayload.payload[i].contents, styles = true)
+                const content = stringToHTML(NoticesPayload.payload[i].contents, true)
                 for (let i = 0; i < content.childNodes.length; i++) {
                   NewNotice.append(content.childNodes[i])
                 }
