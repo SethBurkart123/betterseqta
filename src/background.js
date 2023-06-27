@@ -33,7 +33,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
                 pageUrl: { urlContains: 'site.seqta.com.au', schemes: ['https'] },
               })
             ],
-            actions: [new chrome.declarativeContent.RequestContentScript({ js: ["SEQTA.js"] })]
+            actions: [new chrome.declarativeContent.RequestContentScript({ js: ["seqta.js"] })]
           },
           {
             conditions: [
@@ -41,7 +41,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
                 pageUrl: { urlContains: 'learn.', schemes: ['https'] },
               })
             ],
-            actions: [new chrome.declarativeContent.RequestContentScript({ js: ["SEQTA.js"] })]
+            actions: [new chrome.declarativeContent.RequestContentScript({ js: ["seqta.js"] })]
           },
 
         ]

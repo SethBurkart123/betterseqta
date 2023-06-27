@@ -5,7 +5,7 @@ var UserInitalCode = '';
 var currentSelectedDate = new Date();
 var WhatsNewOpen = false;
 var LessonInterval;
-import DOMPurify from "dompurify";
+import * as DOMPurify from 'dompurify';
 var stringToHTML = function (str, styles=false) {
   var parser = new DOMParser();
   var str = DOMPurify.sanitize(str, { ADD_ATTR: ['onclick']});
@@ -768,7 +768,7 @@ function ColorLuminance(hex, lum) {
 chrome.storage.onChanged.addListener(function (changes) {
   if (changes.selectedColor) {
 
-    rbg = GetThresholdofHex(changes.selectedColor.newValue)
+    let rbg = GetThresholdofHex(changes.selectedColor.newValue)
     if (rbg > 210) {
       document.documentElement.style.setProperty('--text-color', 'black');
       document.documentElement.style.setProperty('--betterseqta-logo', `url(${chrome.runtime.getURL('icons/betterseqta-dark-full.png')})`);
@@ -847,7 +847,7 @@ function RunFunctionOnTrue(storedSetting) {
 
     document.querySelector('link[rel*="icon"]').href = chrome.runtime.getURL("icons/icon-48.png");
 
-    rbg = GetThresholdofHex(storedSetting.selectedColor);
+    let rbg = GetThresholdofHex(storedSetting.selectedColor);
     if (rbg > 210) {
       document.documentElement.style.setProperty('--text-color', 'black');
       document.documentElement.style.setProperty('--betterseqta-logo', `url(${chrome.runtime.getURL('icons/betterseqta-dark-full.png')})`);
