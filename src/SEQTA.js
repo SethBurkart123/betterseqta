@@ -629,6 +629,7 @@ function tryLoad () {
     function () {
       CheckiFrameItems()
       addIFrameCSSToNotices()
+      documentTextColor()
     },
     true
   )
@@ -3053,6 +3054,24 @@ function addIFrameCSSToNotices () {
     if (head.innerHTML.includes('noticeiframe.css') === false) { head.append(fileref) }
   }
 }
+
+function documentTextColor () {
+  chrome.storage.local.get(['DarkMode'], function (result) {
+    const Darkmode = result.DarkMode
+    if (Darkmode) {
+      const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      for (const item of documentArray) {
+        item.setAttribute('style', 'color: white')
+      }
+    } else {
+      const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      for (const item of documentArray) {
+        item.setAttribute('style', 'color: black')
+      }
+    }
+  })
+}
+chrome.storage.onChanged.addListener(documentTextColor)
 
 function LoadInit () {
   console.log('[BetterSEQTA] Started Init')
