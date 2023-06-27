@@ -5,6 +5,7 @@ var UserInitalCode = '';
 var currentSelectedDate = new Date();
 var WhatsNewOpen = false;
 var LessonInterval;
+import DOMPurify from "dompurify";
 var stringToHTML = function (str, styles=false) {
   var parser = new DOMParser();
   var str = DOMPurify.sanitize(str, { ADD_ATTR: ['onclick']});
@@ -2064,9 +2065,6 @@ function GetLightDarkModeString(darkmodetoggle) {
     tooltipstring = "Switch to dark theme";
   }
   return tooltipstring;
-}
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function ChangeCurrentPage(newpage) {

@@ -1,5 +1,5 @@
 function ReloadSEQTAPages() {
-  chrome.tabs.query({}, function (tabs) {
+  chrome.tabs.query({}, function (tabs) {onMessage
     for (let tab of tabs) {
       if (tab.title.includes("SEQTA Learn")) {
         chrome.tabs.reload(tab.id);
