@@ -13,6 +13,11 @@ module.exports = {
         { from: './src/inject', to: './inject' },
         { from: './src/popup', to: './popup' }
       ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: 'node_modules/webextension-polyfill/dist/browser-polyfill.js'
+      }]
     })
   ],
   entry: {
