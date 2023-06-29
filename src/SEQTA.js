@@ -3043,11 +3043,19 @@ function documentTextColor () {
     const Darkmode = result.DarkMode
     if (Darkmode) {
       const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      const linkArray = document.querySelectorAll('a.uiFile')
+      for (const item of linkArray) {
+        item.setAttribute('style', 'color: #06b4fc;')
+      }
       for (const item of documentArray) {
         item.setAttribute('style', 'color: white')
       }
     } else {
       const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      const linkArray = document.querySelectorAll('a.uiFile')
+      for (const item of linkArray) {
+        item.setAttribute('style', 'color: #3465a4;')
+      }
       for (const item of documentArray) {
         item.setAttribute('style', 'color: black')
       }
