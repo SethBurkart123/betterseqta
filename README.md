@@ -23,6 +23,7 @@ Crazypersonalph, currently the lead developer of this fork
 Norangeflame, helped fix notices issue
 </p>
 <br>
+<div align="center">
 <h2>
 Build instructions:
 </h2>
@@ -30,6 +31,7 @@ Build instructions:
 <code>pnpm install</code>
 <br>
 <code>pnpm build</code>
+</div>
 <br>
 <p align="center">
 Acknowledgements:
