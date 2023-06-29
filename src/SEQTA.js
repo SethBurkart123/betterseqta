@@ -278,20 +278,8 @@ async function RunColourCheck (element) {
   }
 }
 
-function GetiFrameCSSElement () {
-  const cssFile = browser.runtime.getURL('inject/iframe.css')
-  const fileref = document.createElement('link')
-  fileref.setAttribute('rel', 'stylesheet')
-  fileref.setAttribute('type', 'text/css')
-  fileref.setAttribute('href', cssFile)
-
-  return fileref
-}
-
-// This function just grabs the CSS file for the iFrames of notices
-// Duplicate of the GetiFrameCSSElement function, look above
-function GetNoticeiFrameCSSElement () {
-  const cssFile = browser.runtime.getURL('inject/noticeiframe.css')
+function GetCSSElement (file) {
+  const cssFile = browser.runtime.getURL(file)
   const fileref = document.createElement('link')
   fileref.setAttribute('rel', 'stylesheet')
   fileref.setAttribute('type', 'text/css')
@@ -302,7 +290,7 @@ function GetNoticeiFrameCSSElement () {
 
 function CheckiFrameItems () {
   // Injecting CSS File to the webpage to overwrite iFrame default CSS
-  const fileref = GetiFrameCSSElement()
+  const fileref = GetCSSElement('inject/iframe.css')
 
   const observer = new MutationObserver(function (mutationsList) {
     mutationsList.forEach(function (mutation) {
@@ -1859,7 +1847,7 @@ function AddBetterSEQTAElements (toggle) {
             const result = browser.storage.local.get(['DarkMode'])
             function actuallyDarkenEverything (item) {
               const alliframes = document.getElementsByTagName('iframe')
-              const fileref = GetiFrameCSSElement()
+              const fileref = GetCSSElement('inject/iframe.css')
 
               if (!item.DarkMode) {
                 document.documentElement.style.setProperty('--background-primary', '#232323')
@@ -3029,7 +3017,7 @@ function addIFrameCSSToNotices () {
   // Iterates through the array, applying the iFrame css
   for (const item of userHTMLArray) {
     // Grabs the link of the CSS file
-    const fileref = GetNoticeiFrameCSSElement()
+    const fileref = GetCSSElement('inject/noticeiframe.css')
     // Grabs the HTML of the header tag
     const head = item.contentWindow.document.querySelectorAll('head')[0]
     // Checks if the CSS has already been applied. If it has, then it does nothing. If not, it appends the CSS file
@@ -3043,7 +3031,11 @@ function documentTextColor () {
     const Darkmode = result.DarkMode
     if (Darkmode) {
       const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      const fullDocArray = document.querySelectorAll('tr.document')
       const linkArray = document.querySelectorAll('a.uiFile')
+      for (const item of fullDocArray) {
+        item.classList.add('documentDark')
+      }
       for (const item of linkArray) {
         item.setAttribute('style', 'color: #06b4fc;')
       }
@@ -3052,7 +3044,11 @@ function documentTextColor () {
       }
     } else {
       const documentArray = document.querySelectorAll('td:not([class^="colourBar"]):not([class^="title"])')
+      const fullDocArray = document.querySelectorAll('tr.document')
       const linkArray = document.querySelectorAll('a.uiFile')
+      for (const item of fullDocArray) {
+        item.classList.remove('documentDark')
+      }
       for (const item of linkArray) {
         item.setAttribute('style', 'color: #3465a4;')
       }
