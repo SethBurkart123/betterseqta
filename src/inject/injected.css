@@ -2340,3 +2340,9 @@ body {
 .whatsnewzoomout {
   animation: zoomout 0.6s;
 }
+
+#main>.documents>.list>tbody .title>a {
+  color: #06b4fc;
+	text-decoration: underline;
+	transition: text-shadow 0.5s;
+}
