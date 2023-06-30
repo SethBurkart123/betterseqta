@@ -2936,17 +2936,14 @@ function SendHomePage () {
     }
     dateControl.addEventListener('input', onInputChange)
 
-    const labelXHR = new XMLHttpRequest()
-    labelXHR.open('POST', `${location.origin}/seqta/student/load/notices?`, true)
-    labelXHR.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
-
-    labelXHR.onreadystatechange = function () {
-      if (labelXHR.readyState === 4) {
-        const LabelsPayload = JSON.parse(labelXHR.response)
-      }
+    async function getLabels () {
+      const response = fetch(`${location.origin}/seqta/student/load/noties?`, { method: 'POST', body: JSON.stringify({ mode: 'labels' }) })
+      return response.json
     }
 
-    labelXHR.send(JSON.stringify({ mode: 'labels' }))
+    getLabels().then((data) => {
+      console.log(data)
+    })
 
     // Sends similar HTTP Post Request for the notices
     result = browser.storage.local.get()
