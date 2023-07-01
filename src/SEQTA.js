@@ -2775,10 +2775,11 @@ function SendHomePage () {
     document.getElementById('home-container').append(upcomingcontainer)
 
     // Creates the notices container into the home container
-    const NoticesStr = `<div class="notices-container border"><div style="display: flex; justify-content: space-between"><h2 class="home-subtitle">Notices</h2><input type="date" value=${TodayFormatted}></div><div class="notice-container" id="notice-container"></div></div>`
+    const NoticesStr = `<div class="notices-container border"><div style="display: flex; justify-content: space-between"><h2 class="home-subtitle">Notices</h2><input type="date" value=${TodayFormatted}><select></select></div><div class="notice-container" id="notice-container"></div></div>`
     const Notices = stringToHTML(NoticesStr)
     // Appends the shortcut container into the home container
     document.getElementById('home-container').append(Notices.firstChild)
+    labelRetrieval()
 
     callHomeTimetable(TodayFormatted)
 
@@ -2935,15 +2936,6 @@ function SendHomePage () {
       }
     }
     dateControl.addEventListener('input', onInputChange)
-
-    async function getLabels () {
-      const response = fetch(`${location.origin}/seqta/student/load/noties?`, { method: 'POST', body: JSON.stringify({ mode: 'labels' }) })
-      return response.json
-    }
-
-    getLabels().then((data) => {
-      console.log(data)
-    })
 
     // Sends similar HTTP Post Request for the notices
     result = browser.storage.local.get()
@@ -3143,6 +3135,23 @@ function documentTextColor () {
   result.then(changeDocTextCol, onError)
 }
 browser.storage.onChanged.addListener(documentTextColor)
+
+function labelRetrieval () {
+  async function getLabels () {
+    await fetch(`${location.origin}/seqta/student/load/notices?`, { method: 'POST', body: JSON.stringify({ mode: 'labels' }), headers: { 'Content-Type': 'application/json; charset=utf-8' } }).then((response) => {
+      response.json().then((data) => {
+        const selector = document.querySelectorAll('select')[0]
+        for (const item in JSON.parse(JSON.stringify(data.payload))) {
+          const array = JSON.parse(JSON.stringify(data.payload))[item]
+          const parser = new DOMParser()
+          const doc = parser.parseFromString(`<option value="${array.id}">${array.title}</option>`, 'text/html')
+          selector.append(doc.body.firstChild)
+        }
+      })
+    })
+  }
+  getLabels()
+}
 
 function LoadInit () {
   console.log('[BetterSEQTA] Started Init')
