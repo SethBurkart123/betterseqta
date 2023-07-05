@@ -2343,3 +2343,9 @@ body {
 .documentDark:hover {
   background-color: rgb(66,66,66) !important;
 }
+.dashlet-summary-homework>.summary>.subject>.item {
+  color: var(--text-primary) !important;
+}
+.dashlet-summary-homework>.summary>.subject>.item {
+  color: var(--text-primary) !important;
+}
