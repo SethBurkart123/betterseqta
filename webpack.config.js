@@ -5,6 +5,11 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
+  performance: {
+    hints: false,
+    maxAssetSize: 512000,
+    maxEntrypointSize: 512000
+  },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
